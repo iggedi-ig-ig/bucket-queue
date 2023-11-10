@@ -13,20 +13,6 @@
 //! - if a value is pushed to the queue, it will have the value of the previous minimum plus some edge weight
 //! - that edge weight will be smaller than or equal to C
 //! This is also the most common application for bucket queues.
-//!
-//! # Time Complexity
-//! For a maximum increment of C, the operations have the following (worst case) runtime complexities:
-//! Operation | Complexity
-//! ---|---
-//! `insert` | O(1)
-//! `remove` | O(1)
-//! `decrease_key` | O(1)
-//! `get_min` | O(C)
-//! `pop_min` | O(C)
-//!
-//! Also note that these time complexities are all "real" upper bounds for worst-case time complexity, not amortized.
-//! This is better than anything a general purpose priority queue can achieve.
-//! Using a bucket queue, Dijkstra's algorithm can be implemented in O(|E| + |V|C) time.
 #![deny(missing_docs)]
 
 use std::marker::PhantomData;
@@ -45,6 +31,15 @@ use std::marker::PhantomData;
 /// Internally, this data structure converts all `T`s to `usize`, so it might act unexpectedly
 /// when `T` holds state or something similar.
 /// This data structure is meant to only be used with `T` being a primitive.
+///
+/// # Operations
+/// Operation | Complexity
+/// ---|---
+/// `insert` | O(1)
+/// `remove` | O(1)
+/// `decrease_key` | O(1)
+/// `get_min` | O(C)
+/// `pop_min` | O(C)
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct BucketQueue<T>
 where
