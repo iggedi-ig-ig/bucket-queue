@@ -64,7 +64,7 @@ where
             buckets: vec![0; max_increment + 1],
             max_increment,
             last_min: 0,
-            __phantom: PhantomData::default(),
+            __phantom: PhantomData,
         }
     }
 
@@ -102,7 +102,7 @@ where
     }
 
     /// Moves an element from priority `value` to `new_key`. If no element with `value` exists, nothing changes.
-    /// Note that `value` and `new_key` both have to be between `last_min` and `last_min + max_increment`, 
+    /// Note that `value` and `new_key` both have to be between `last_min` and `last_min + max_increment`,
     /// and `new_key` has to be smaller than or equal to `value`. Otherwise, this method panics.
     pub fn decrease_key(&mut self, value: T, new_key: T) {
         let value: usize = value.into();
