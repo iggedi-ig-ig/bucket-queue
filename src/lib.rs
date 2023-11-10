@@ -45,15 +45,6 @@ use std::marker::PhantomData;
 /// Internally, this data structure converts all `T`s to `usize`, so it might act unexpectedly
 /// when `T` holds state or something similar.
 /// This data structure is meant to only be used with `T` being a primitive.
-///
-/// # Operations
-/// Operation | Complexity
-/// ---|---
-/// `insert` | O(1)
-/// `remove` | O(1)
-/// `decrease_key` | O(1)
-/// `get_min` | O(C)
-/// `pop_min` | O(C)
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct BucketQueue<T>
 where
