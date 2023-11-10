@@ -32,11 +32,13 @@ This is better than anything a general purpose priority queue can achieve.
 Using a bucket queue, Dijkstra's algorithm can be implemented in $O(|E| + |V|C)$ time.
 
 ## Dijkstra Complexity
-Here a comparison of some common priority queue data structures and the time complexity dijkstra has using them:
+Here a comparison of some common priority queue data structures and the time complexity dijkstra has using them, where $|V|$ is the amount of vertices, $|E|$ the amount of edges, and $C$ being the maximum edge weight.
 
-Priority Queue Type | Dijkstra Complexity
----|---
-Binary Heap | $O((\|E\| + \|V\|) \log \|V\|)$
-Fibonacci Heap | $O(\|E\| + \|V\| \log \|V\|)$
-Bucket Queue | $O(\|E\| + \|V\|C)$
-Radix Queue | $O(\|E\| + \|V\| \log C$
+Priority Queue Type | Dijkstra Complexity | General Purpose*
+---|---|---
+Binary Heap | $O((\|E\| + \|V\|) \log \|V\|)$ | Yes
+Fibonacci Heap | $O(\|E\| + \|V\| \log \|V\|)$ | Yes
+Bucket Queue | $O(\|E\| + \|V\|C)$ | No
+Radix Queue | $O(\|E\| + \|V\| \log C$ | No
+
+\* Here, "general purpose" means working for any edge weights (non-negative because that is required for Dijkstra to work anyways)
