@@ -3,7 +3,7 @@ A bucket queue implementation in the rust programming language.
 
 # Bucket Queues
 Bucket queues are a specialized priority queue data structure that work well for monotonous, integer data with some maximum increment. 
-Their most common application are for Dijkstra's algorithm for shortest paths, but they can be applied to any problem where:
+Their most common application are Dijkstra's algorithm for shortest paths, but they can be applied to any problem where:
 - keys are integers
 - keys are monotonous, meaning after the smallest key was extracted, no key that's smaller than the previous minimum can be added
 - there is a constant (small) range of values that can be added to the queue
@@ -32,7 +32,7 @@ This is better than anything a general purpose priority queue can achieve.
 Using a bucket queue, Dijkstra's algorithm can be implemented in $O(|E| + |V|C)$ time.
 
 ## Dijkstra Complexity
-Here a comparison of some common priority queue data structures and the time complexity dijkstra has using them, where $|V|$ is the amount of vertices, $|E|$ the amount of edges, and $C$ being the maximum edge weight.
+Here's a comparison of some common priority queue data structures and the time complexity dijkstra has using them, where $|V|$ is the amount of vertices, $|E|$ the amount of edges, and $C$ being the maximum edge weight:
 
 Priority Queue Type | Dijkstra Complexity | General Purpose*
 ---|---|---
